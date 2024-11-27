@@ -21,6 +21,7 @@ public class Question11
             DistanceTo distanceTo2 = new DistanceTo(city2,distance);
             DistanceTo distanceTo1 = new DistanceTo(city1,distance);
 
+
             directRoutes.putIfAbsent(city1, new TreeSet<>());
             directRoutes.putIfAbsent(city2, new TreeSet<>());
 

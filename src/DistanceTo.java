@@ -25,6 +25,10 @@ public class DistanceTo implements Comparable<DistanceTo> {
     }
 
     public int compareTo(DistanceTo other) {
-        return distance - other.distance;
+         if(distance - other.distance !=0){
+             return Integer.compare(distance, other.distance);
+         }
+         return target.compareTo(other.target);
+
     }
 }
