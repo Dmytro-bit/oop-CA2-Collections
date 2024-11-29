@@ -9,7 +9,7 @@ public class Question11
 {
 
     public static void main(String[] args) throws FileNotFoundException {
-//      Test Test Test
+
         String city1,city2;
         int distance;
         String from = "";
@@ -46,13 +46,12 @@ public class Question11
             if(!shortestKnownDistances.containsKey(target)){
                 int d = smallest.getDistance();
                 shortestKnownDistances.put(target,d);
-                directRoutes.forEach((key, value) ->{
-                    value.forEach(distanceTo -> {
-                        if(distanceTo.getTarget().equals(target)){
-                            pq.add(new DistanceTo(key,d+distanceTo.getDistance()));
-                        }
-                    });
-                });
+                TreeSet<DistanceTo> neighbours = directRoutes.get(target);
+                for (DistanceTo dt: neighbours) {
+                    String c = dt.getTarget();
+
+                    if (!shortestKnownDistances.containsKey(c)) pq.add(new DistanceTo(c, d+dt.getDistance()));
+                }
             }
 
         }
