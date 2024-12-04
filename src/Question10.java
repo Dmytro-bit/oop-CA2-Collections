@@ -69,11 +69,11 @@ public class Question10 {
             }
 
             if (!moved) {
-                junctions.pop(); // Backtrack
+                junctions.pop();
                 if (!junctions.isEmpty()) {
                     currPoint = junctions.peek();
                     if (!moves.isEmpty()) {
-                        path.remove(path.size() - 1); // Remove last move
+                        path.removeLast();
                         moves.pop();
                     }
                 }
