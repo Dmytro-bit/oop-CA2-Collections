@@ -84,7 +84,6 @@ public class Question10 {
         return path;
     }
 
-
     public static boolean isValidMove(char[][] maze, int[] point) {
         int x = point[0], y = point[1];
         return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == ' ';
