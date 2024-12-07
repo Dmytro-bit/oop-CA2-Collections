@@ -23,7 +23,7 @@ public static void main(String[] args) {
         System.out.print(">");
         command = in.next();
         if (command.equalsIgnoreCase("buy")) {
-            System.out.println("Quality to buy:");
+            System.out.println("Quantity to buy:");
             int qty = in.nextInt();
             System.out.println("Price:");
             double price = in.nextDouble();
