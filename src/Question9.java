@@ -8,9 +8,11 @@ public class Question9 {
         Scanner input = new Scanner(System.in);
         Stack<Integer> numbers = new Stack<>();
         Stack<Character> operators = new Stack<>();
+
         System.out.println("Enter the expression: ");
-        String simpleOperators = "+-*/";
-        String expression = input.nextLine();
+        final String simpleOperators = "+-*/";
+
+        String expression = input.nextLine().trim();
 
         for (int i = 0; i < expression.length(); i++)
         {
