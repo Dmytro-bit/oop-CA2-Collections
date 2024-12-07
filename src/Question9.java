@@ -30,9 +30,14 @@ public class Question9 {
                     evaluateTop(operators.pop(), numbers);
                 operators.pop();
             }
-            else
-            {
-                numbers.push(Integer.parseInt(String.valueOf(currChar)));
+            else if (Character.isDigit(currChar)) {
+                int num = 0;
+                while (i < expression.length() && Character.isDigit(expression.charAt(i))) {
+                    num = num * 10 + (expression.charAt(i) - '0');
+                    i++;
+                }
+                i--;
+                numbers.push(num);
             }
         }
 
