@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 // Multi-company (Queue)
@@ -88,10 +87,9 @@ static Scanner in = new Scanner(System.in);
 
         public static void displayCompanies(Map<String, Queue<Block>> map){
             map.forEach((company, shares)->{
-                AtomicInteger total = new AtomicInteger();
-                shares.forEach(block -> {
-                    total.addAndGet(block.getQuantity());
-                });
+                int total = shares.stream()
+                        .mapToInt(Block::getQuantity)
+                        .sum();
                 System.out.println("Company: " + company + " Shares: " + total);
             });
         }
