@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
 
 public class Question9 {
@@ -6,13 +7,14 @@ public class Question9 {
     public static int calculate()
     {
         Scanner input = new Scanner(System.in);
-        Stack<Integer> numbers = new Stack<>();
-        Stack<Character> operators = new Stack<>();
+        Deque<Integer> numbers = new ArrayDeque<>();
+        Deque<Character> operators = new ArrayDeque<>();
 
         System.out.println("Enter the expression: ");
         final String simpleOperators = "+-*/";
 
         String expression = input.nextLine().trim();
+        expression = expression.replaceAll(" ", "");
 
         for (int i = 0; i < expression.length(); i++)
         {
@@ -52,7 +54,7 @@ public class Question9 {
 
     }
 
-    public static void evaluateTop(char operator, Stack<Integer> numbers)
+    public static void evaluateTop(char operator, Deque<Integer> numbers)
     {
         switch (operator)
         {
