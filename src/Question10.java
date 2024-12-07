@@ -56,7 +56,7 @@ public class Question10 {
                 }
 
                 if (isValidMove(maze, nextPoint)) {
-                    maze[nextPoint[0]][nextPoint[1]] = '#'; // Mark as visited
+                    maze[nextPoint[0]][nextPoint[1]] = '#';
                     currPoint = nextPoint;
                     path.add(dir);
                     moves.push(dir);
@@ -89,6 +89,26 @@ public class Question10 {
     public static boolean isExit(int[] currPoint, char[][] maze) {
         int x = currPoint[0], y = currPoint[1];
         return (x == 0 || x == maze.length - 1 || y == 0 || y == maze[0].length - 1);
+    }
+
+    public static void main(String[] args) {
+        Stack<DIRECTION> dirs = new Stack<>();
+        dirs.push(DIRECTION.WEST);
+        dirs.push(DIRECTION.SOUTH);
+        dirs.push(DIRECTION.EAST);
+        dirs.push(DIRECTION.NORTH);
+
+        char[][] maze = new char[][]{{'#', ' ', '#', '#', '#', '#', '#', '#'},
+                                     {'#', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+                                     {'#', '#', '#', '#', ' ', '#', '#', '#'},
+                                     {'#', ' ', ' ', ' ', 'X', ' ', ' ', '#'},
+                                     {'#', '#', '#', '#', ' ', '#', '#', '#'},
+                                     {'#', ' ', ' ', ' ', ' ', '#', '#', '#'},
+                                     {'#', '#', '#', '#', ' ', '#', '#', '#'},
+                                     {'#', '#', '#', '#', '#', '#', '#', '#'}};
+
+        String values = Arrays.toString(solveMaze(maze, getStartingPoint(maze)).toArray());
+        System.out.println(values);
     }
 
 }
