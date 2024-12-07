@@ -1,5 +1,6 @@
-import java.util.*;
+import question7and8Extra.Block;
 
+import java.util.*;
 
 // Multi-company (Queue)
 /*
@@ -90,6 +91,7 @@ static Scanner in = new Scanner(System.in);
                 int total = shares.stream()
                         .mapToInt(Block::getQuantity)
                         .sum();
+
                 System.out.println("Company: " + company + " Shares: " + total);
             });
         }

@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
 
-
+import question7and8Extra.Block;
 // Shares Tax Calculations (Queue)
 /*
     Will repeatedly ask the user to enter the commands in the format

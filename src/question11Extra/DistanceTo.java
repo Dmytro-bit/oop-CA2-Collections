@@ -1,3 +1,4 @@
+package question11Extra;
 
 public class DistanceTo implements Comparable<DistanceTo> {
     private String target;
@@ -18,7 +19,7 @@ public class DistanceTo implements Comparable<DistanceTo> {
 
     @Override
     public String toString() {
-        return "DistanceTo{" +
+        return "question11Extra.DistanceTo{" +
                 "distance=" + distance +
                 ", target='" + target + '\'' +
                 '}';
