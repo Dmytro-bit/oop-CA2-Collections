@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 public class Question10 {
     public static void display(int[][] image) {
@@ -32,8 +30,8 @@ public class Question10 {
 
     public static ArrayList<DIRECTION> solveMaze(final char[][] maze, int[] startPoint) {
         ArrayList<DIRECTION> path = new ArrayList<>();
-        Stack<int[]> junctions = new Stack<>();
-        Stack<DIRECTION> moves = new Stack<>();
+        Deque<int[]> junctions = new ArrayDeque<>();
+        Deque<DIRECTION> moves = new ArrayDeque<>();
 
         int[] currPoint = Arrays.copyOf(startPoint, 2);
         junctions.push(Arrays.copyOf(currPoint, 2));
