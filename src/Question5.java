@@ -16,7 +16,7 @@ public class Question5 {    //Java Identifier Count (Map)
     public static void readFile(String fileName) throws FileNotFoundException {
         Map<String, Integer> identifierCountMap = new HashMap<>();
         Map<String, ArrayList<String>> identifierLineMap = new HashMap<>();
-        final String regex = "\\b[A-Za-z_][A-Za-z0-9_]*\\b";
+        final String regex = "\\b[A-Za-z0-9_]+\\b";
         int lineNumber = 0;
 
 
@@ -47,12 +47,12 @@ public class Question5 {    //Java Identifier Count (Map)
             }
         }
 
-        ArrayList<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(identifierCountMap.entrySet());
+        ArrayList<Map.Entry<String, Integer>> sortedKeys = new ArrayList<>(identifierCountMap.entrySet());
 
-        sortedEntries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+        sortedKeys.sort((a, b) -> b.getValue().compareTo(a.getValue()));
 
 
-        for (Map.Entry<String, Integer> identifier : sortedEntries) {
+        for (Map.Entry<String, Integer> identifier : sortedKeys) {
             System.out.println("------------------------------------------");
             System.out.println(identifier.getKey() + ": " + identifier.getValue());
             for (String line : identifierLineMap.get(identifier.getKey())) {
