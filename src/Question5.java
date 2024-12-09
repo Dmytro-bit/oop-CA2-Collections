@@ -1,22 +1,22 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Question5 {    //Java Identifier Count (Map)
 
     public static void main(String[] args) throws FileNotFoundException {
-        readFile("src/test.java");
+        readFile("src/Question2.java");
     }
 
     public static void readFile(String fileName) throws FileNotFoundException {
-        Map<String, Integer> identifierCountMap = new HashMap<>();
-        Map<String, ArrayList<String>> identifierLineMap = new HashMap<>();
-        final String regex = "\\b[A-Za-z0-9_]+\\b";
+        TreeMap<String, Integer> identifierCountMap = new TreeMap<>();
+        TreeMap<String, ArrayList<String>> identifierLineMap = new TreeMap<>();
+
+        final String regex = "\\b[A-Za-z_][A-Za-z0-9_]*\\b";
         int lineNumber = 0;
 
 
@@ -35,8 +35,7 @@ public class Question5 {    //Java Identifier Count (Map)
 
                 if (identifierCountMap.containsKey(identifier)) {
                     identifierCountMap.put(identifier, identifierCountMap.get(identifier) + 1);
-                }
-                else {
+                } else {
                     identifierCountMap.put(identifier, 1);
                 }
 
@@ -47,15 +46,10 @@ public class Question5 {    //Java Identifier Count (Map)
             }
         }
 
-        ArrayList<Map.Entry<String, Integer>> sortedKeys = new ArrayList<>(identifierCountMap.entrySet());
-
-        sortedKeys.sort((a, b) -> b.getValue().compareTo(a.getValue()));
-
-
-        for (Map.Entry<String, Integer> identifier : sortedKeys) {
+        for (String key : identifierCountMap.keySet()) {
             System.out.println("------------------------------------------");
-            System.out.println(identifier.getKey() + ": " + identifier.getValue());
-            for (String line : identifierLineMap.get(identifier.getKey())) {
+            System.out.println(key + ": " + identifierCountMap.get(key));
+            for (String line : identifierLineMap.get(key)) {
                 System.out.println(line);
             }
         }
