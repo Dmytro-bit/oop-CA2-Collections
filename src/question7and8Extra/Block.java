@@ -1,9 +1,11 @@
-public class Share
+package question7and8Extra;
+
+public class Block
 {
     private int quantity;
     private double price;
 
-    public Share(int quantity, double price) {
+    public Block(int quantity, double price) {
         this.quantity = quantity;
         this.price = price;
     }
